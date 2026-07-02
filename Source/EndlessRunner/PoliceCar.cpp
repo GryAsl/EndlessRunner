@@ -16,6 +16,7 @@
 APoliceCar::APoliceCar()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
 
 	ChassisMain = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Chassis Main"));
 	ChassisMain->SetupAttachment(GetMesh());
@@ -88,11 +89,25 @@ APoliceCar::APoliceCar()
 	{
 		GetChaosVehicleMovement()->EngineSetup.TorqueCurve.ExternalCurve = TorqueCurveAsset.Object;
 	}
+
+	GetMesh()->SetNotifyRigidBodyCollision(true);
+	GetMesh()->SetGenerateOverlapEvents(true);
+
+	GetChaosVehicleMovement()->SetRequiresControllerForInputs(false);
 }
 
 void APoliceCar::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if (!GetController())
+	{
+		SpawnDefaultController();
+	}
+
+	GetChaosVehicleMovement()->SetRequiresControllerForInputs(false);
+	GetChaosVehicleMovement()->Activate(true);
+	GetMesh()->WakeAllRigidBodies();
 }
 
 void APoliceCar::Tick(float DeltaSeconds)
@@ -115,22 +130,48 @@ void APoliceCar::Tick(float DeltaSeconds)
 	GetChaosVehicleMovement()->SetSteeringInput(SteeringInput);
 	GetChaosVehicleMovement()->SetBrakeInput(0.0f);
 
-	ApplyPlayerHitIfClose(PlayerPawn);
+	if (!bHasHitPlayer && FVector::DistSquared2D(PlayerPawn->GetActorLocation(), GetActorLocation()) <= FMath::Square(PlayerHitRadius))
+	{
+		ApplyPlayerHit(PlayerPawn);
+	}
 }
 
 AMyPawn* APoliceCar::GetTargetPlayer() const
 {
+	if (TargetPawn.IsValid())
+	{
+		return TargetPawn.Get();
+	}
+
 	return Cast<AMyPawn>(UGameplayStatics::GetPlayerPawn(this, 0));
 }
 
-void APoliceCar::ApplyPlayerHitIfClose(AMyPawn* PlayerPawn)
+void APoliceCar::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
 {
-	if (bHasHitPlayer || !PlayerPawn)
+	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
+
+	TryApplyPlayerHit(Other, OtherComp);
+}
+
+void APoliceCar::SetTargetPawn(AMyPawn* NewTargetPawn)
+{
+	TargetPawn = NewTargetPawn;
+}
+
+void APoliceCar::TryApplyPlayerHit(AActor* OtherActor, UPrimitiveComponent* OtherComponent)
+{
+	AMyPawn* PlayerPawn = Cast<AMyPawn>(OtherActor);
+	if (!PlayerPawn && OtherComponent)
 	{
-		return;
+		PlayerPawn = Cast<AMyPawn>(OtherComponent->GetOwner());
 	}
 
-	if (FVector::DistSquared(PlayerPawn->GetActorLocation(), GetActorLocation()) > FMath::Square(PlayerHitRadius))
+	ApplyPlayerHit(PlayerPawn);
+}
+
+void APoliceCar::ApplyPlayerHit(AMyPawn* PlayerPawn)
+{
+	if (bHasHitPlayer || !PlayerPawn)
 	{
 		return;
 	}

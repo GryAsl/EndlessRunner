@@ -8,6 +8,7 @@
 
 class AMyPawn;
 class UStaticMeshComponent;
+class UPrimitiveComponent;
 
 UCLASS()
 class APoliceCar : public AEndlessRunnerSportsCar
@@ -18,6 +19,9 @@ public:
 	APoliceCar();
 
 	virtual void Tick(float DeltaSeconds) override;
+	virtual void NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
+
+	void SetTargetPawn(AMyPawn* NewTargetPawn);
 
 protected:
 	virtual void BeginPlay() override;
@@ -60,7 +64,9 @@ protected:
 
 private:
 	AMyPawn* GetTargetPlayer() const;
-	void ApplyPlayerHitIfClose(AMyPawn* PlayerPawn);
+	void TryApplyPlayerHit(AActor* OtherActor, UPrimitiveComponent* OtherComponent);
+	void ApplyPlayerHit(AMyPawn* PlayerPawn);
 
+	TWeakObjectPtr<AMyPawn> TargetPawn;
 	bool bHasHitPlayer = false;
 };

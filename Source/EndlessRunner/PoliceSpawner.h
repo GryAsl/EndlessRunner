@@ -6,7 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "PoliceSpawner.generated.h"
 
-class APoliceCar;
+class USceneComponent;
 
 UCLASS()
 class APoliceSpawner : public AActor
@@ -19,14 +19,20 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, Category = "Police")
-	TSubclassOf<APoliceCar> PoliceClass;
+	UPROPERTY(VisibleAnywhere, Category = "Police", meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<USceneComponent> Root;
 
 	UPROPERTY(EditAnywhere, Category = "Police")
 	bool bSpawnOnBeginPlay = true;
 
 	UPROPERTY(EditAnywhere, Category = "Police")
 	float InitialSpawnDelay = 2.0f;
+
+	UPROPERTY(EditAnywhere, Category = "Police")
+	float SpawnForwardOffset = 0.0f;
+
+	UPROPERTY(EditAnywhere, Category = "Police")
+	float SpawnUpOffset = 80.0f;
 
 private:
 	void SpawnPolice();
