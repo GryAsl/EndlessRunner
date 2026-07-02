@@ -17,53 +17,53 @@ class ALaneSpawner : public AActor
 public:
 	ALaneSpawner();
 
-protected:
-	virtual void BeginPlay() override;
-
-	UPROPERTY(EditAnywhere, Category = "Lane")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane")
 	bool bUseReverseDirection = false;
 
-	UPROPERTY(EditAnywhere, Category = "Lane")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane")
 	float SpawnForwardOffset = 0.0f;
 
-	UPROPERTY(EditAnywhere, Category = "Lane")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane")
 	float SpawnUpOffset = 40.0f;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Cars")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Cars")
 	TArray<TSubclassOf<ANPCCar>> CarClasses;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Cars")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Cars")
 	float CarSpawnIntervalMin = 1.5f;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Cars")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Cars")
 	float CarSpawnIntervalMax = 3.5f;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Cars")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Cars")
 	float CarSpeedKmhMin = 70.0f;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Cars")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Cars")
 	float CarSpeedKmhMax = 130.0f;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Cars")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Cars")
 	float CarThrottleMin = 0.55f;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Cars")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Cars")
 	float CarThrottleMax = 1.0f;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Interactables")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Interactables")
 	TArray<TSubclassOf<AHighwayInteractable>> InteractableClasses;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Interactables")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Interactables")
 	float InteractableSpawnIntervalMin = 4.0f;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Interactables")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Interactables")
 	float InteractableSpawnIntervalMax = 8.0f;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Safety")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Safety")
 	float SpawnClearRadius = 450.0f;
 
-	UPROPERTY(EditAnywhere, Category = "Lane|Safety")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lane|Safety")
 	bool bSkipInteractableIfCarNearby = true;
+
+protected:
+	virtual void BeginPlay() override;
 
 private:
 	void ScheduleNextCarSpawn();
