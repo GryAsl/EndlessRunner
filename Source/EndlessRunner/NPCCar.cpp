@@ -16,14 +16,33 @@ ANPCCar::ANPCCar()
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("CollisionBox"));
 	SetRootComponent(CollisionBox);
 	CollisionBox->SetBoxExtent(FVector(230.0f, 105.0f, 75.0f));
-	CollisionBox->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	CollisionBox->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	CollisionBox->SetCollisionObjectType(ECC_WorldDynamic);
-	CollisionBox->SetCollisionResponseToAllChannels(ECR_Overlap);
+	CollisionBox->SetCollisionResponseToAllChannels(ECR_Ignore);
+	CollisionBox->SetCollisionResponseToChannel(ECC_Pawn, ECR_Block);
+	CollisionBox->SetCollisionResponseToChannel(ECC_PhysicsBody, ECR_Block);
+	CollisionBox->SetNotifyRigidBodyCollision(true);
 	CollisionBox->SetGenerateOverlapEvents(true);
 
 	CarMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CarMesh"));
 	CarMesh->SetupAttachment(CollisionBox);
 	CarMesh->SetCollisionProfileName(FName("NoCollision"));
+
+	WheelFrontLeft = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WheelFrontLeft"));
+	WheelFrontLeft->SetupAttachment(CollisionBox);
+	WheelFrontLeft->SetCollisionProfileName(FName("NoCollision"));
+
+	WheelFrontRight = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WheelFrontRight"));
+	WheelFrontRight->SetupAttachment(CollisionBox);
+	WheelFrontRight->SetCollisionProfileName(FName("NoCollision"));
+
+	WheelBackLeft = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WheelBackLeft"));
+	WheelBackLeft->SetupAttachment(CollisionBox);
+	WheelBackLeft->SetCollisionProfileName(FName("NoCollision"));
+
+	WheelBackRight = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("WheelBackRight"));
+	WheelBackRight->SetupAttachment(CollisionBox);
+	WheelBackRight->SetCollisionProfileName(FName("NoCollision"));
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(TEXT("/Game/Vehicles/SportsCar/SM_SportsCar.SM_SportsCar"));
 	if (MeshAsset.Succeeded())
@@ -55,6 +74,11 @@ void ANPCCar::Tick(float DeltaSeconds)
 	if (AliveSeconds >= LifeSeconds)
 	{
 		Destroy();
+		return;
+	}
+
+	if (bPhysicsActor)
+	{
 		return;
 	}
 
@@ -90,6 +114,13 @@ void ANPCCar::HandleBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActo
 	TryHitPlayer(OtherActor, OtherComponent);
 }
 
+void ANPCCar::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
+{
+	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
+
+	TryHitPlayer(Other, OtherComp);
+}
+
 void ANPCCar::TryHitPlayer(AActor* OtherActor, UPrimitiveComponent* OtherComponent)
 {
 	if (bHitPlayer)
@@ -110,9 +141,26 @@ void ANPCCar::TryHitPlayer(AActor* OtherActor, UPrimitiveComponent* OtherCompone
 
 	bHitPlayer = true;
 	PlayerPawn->ApplyTrafficHitPenalty(PlayerHitPenaltyDuration, PlayerHitThrottle);
+	BecomePhysicsActor();
 
 	if (bDestroyOnPlayerHit)
 	{
 		Destroy();
 	}
+}
+
+void ANPCCar::BecomePhysicsActor()
+{
+	if (bPhysicsActor)
+	{
+		return;
+	}
+
+	bPhysicsActor = true;
+	SpeedKmh = 0.0f;
+	ThrottleValue = 0.0f;
+
+	CollisionBox->SetSimulatePhysics(true);
+	CollisionBox->SetEnableGravity(true);
+	CollisionBox->WakeAllRigidBodies();
 }

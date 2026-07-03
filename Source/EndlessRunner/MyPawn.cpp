@@ -3,6 +3,7 @@
 #include "MyPawn.h"
 
 #include "Animation/AnimInstance.h"
+#include "Blueprint/UserWidget.h"
 #include "ChaosWheeledVehicleMovementComponent.h"
 #include "Components/InputComponent.h"
 #include "Components/SkeletalMeshComponent.h"
@@ -13,8 +14,11 @@
 #include "InputAction.h"
 #include "InputActionValue.h"
 #include "InputCoreTypes.h"
+#include "Engine/Engine.h"
 #include "Engine/SkeletalMesh.h"
 #include "Engine/StaticMesh.h"
+#include "GameFramework/PlayerController.h"
+#include "Kismet/GameplayStatics.h"
 #include "UObject/ConstructorHelpers.h"
 
 AMyPawn::AMyPawn()
@@ -93,6 +97,12 @@ AMyPawn::AMyPawn()
 		GetChaosVehicleMovement()->EngineSetup.TorqueCurve.ExternalCurve = TorqueCurveAsset.Object;
 	}
 
+	static ConstructorHelpers::FClassFinder<UUserWidget> CarUIWidgetClass(TEXT("/Game/Blueprints/Widgets/CarUI"));
+	if (CarUIWidgetClass.Succeeded())
+	{
+		CarUIClass = CarUIWidgetClass.Class;
+	}
+
 	static ConstructorHelpers::FObjectFinder<UInputAction> SteeringActionAsset(TEXT("/Game/VehicleTemplate/Input/Actions/IA_Steering.IA_Steering"));
 	static ConstructorHelpers::FObjectFinder<UInputAction> ThrottleActionAsset(TEXT("/Game/VehicleTemplate/Input/Actions/IA_Throttle.IA_Throttle"));
 	static ConstructorHelpers::FObjectFinder<UInputAction> BrakeActionAsset(TEXT("/Game/VehicleTemplate/Input/Actions/IA_Brake.IA_Brake"));
@@ -141,6 +151,27 @@ void AMyPawn::BeginPlay()
 
 	LastDistanceSampleLocation = GetActorLocation();
 	DistanceTravelledCm = 0.0f;
+	CreateCarUI();
+	ApplyDrivingInputMode();
+}
+
+void AMyPawn::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	if (CarUIInstance)
+	{
+		CarUIInstance->RemoveFromParent();
+		CarUIInstance = nullptr;
+	}
+
+	Super::EndPlay(EndPlayReason);
+}
+
+void AMyPawn::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	CreateCarUI();
+	ApplyDrivingInputMode();
 }
 
 void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -194,12 +225,14 @@ void AMyPawn::Tick(float DeltaSeconds)
 	{
 		const float NitroCruiseAdjust = bNitroActive ? 1.0f : 0.0f;
 		const float CombinedCruiseAdjust = CruiseAdjustInput < 0.0f ? CruiseAdjustInput : FMath::Max(CruiseAdjustInput, NitroCruiseAdjust);
-		CurrentTargetThrottle = FMath::Clamp(CurrentTargetThrottle + CombinedCruiseAdjust * ThrottleAdjustRate * DeltaSeconds, MinimumThrottle, MaximumThrottle);
+		const float AdjustRate = ThrottleAdjustRate * (CombinedCruiseAdjust < 0.0f ? BrakeThrottleAdjustMultiplier : 1.0f);
+		CurrentTargetThrottle = FMath::Clamp(CurrentTargetThrottle + CombinedCruiseAdjust * AdjustRate * DeltaSeconds, MinimumThrottle, MaximumThrottle);
 	}
 
 	const float EffectiveThrottle = TrafficPenaltyRemaining > 0.0f ? TrafficPenaltyThrottle : GetEffectiveThrottle();
+	const float BrakeInput = FMath::Max(CruiseAdjustInput < 0.0f ? CruiseBrakeInputStrength : 0.0f, bHandbrakeHeld ? HandbrakeBrakeInputStrength : 0.0f);
 	GetChaosVehicleMovement()->SetThrottleInput(FMath::Clamp(EffectiveThrottle, 0.0f, 1.0f));
-	GetChaosVehicleMovement()->SetBrakeInput(0.0f);
+	GetChaosVehicleMovement()->SetBrakeInput(BrakeInput);
 	GetChaosVehicleMovement()->EngineSetup.MaxTorque = bNitroActive ? BaseMaxTorque * NitroTorqueMultiplier : BaseMaxTorque;
 	GetChaosVehicleMovement()->EngineSetup.MaxRPM = bNitroActive ? BaseMaxRPM * NitroMaxRPMMultiplier : BaseMaxRPM;
 
@@ -235,12 +268,90 @@ float AMyPawn::GetSpeedKmh() const
 
 float AMyPawn::GetEffectiveThrottle() const
 {
-	return CurrentTargetThrottle + (bNitroActive ? NitroThrottleBonus : 0.0f);
+	return bNitroActive ? FMath::Min(1.0f, CurrentTargetThrottle + NitroThrottleBonus) : FMath::Min(MaximumThrottle, CurrentTargetThrottle);
 }
 
 float AMyPawn::GetNitroPercent() const
 {
 	return NitroMaxCharge > 0.0f ? FMath::Clamp(NitroCharge / NitroMaxCharge, 0.0f, 1.0f) : 0.0f;
+}
+
+float AMyPawn::GetNitroCharge() const
+{
+	return NitroCharge;
+}
+
+float AMyPawn::GetNitroMaxCharge() const
+{
+	return NitroMaxCharge;
+}
+
+bool AMyPawn::IsNitroActive() const
+{
+	return bNitroActive;
+}
+
+int32 AMyPawn::GetHealth() const
+{
+	return Health;
+}
+
+float AMyPawn::GetHealthPercent() const
+{
+	return MaxHealth > 0 ? FMath::Clamp(static_cast<float>(Health) / static_cast<float>(MaxHealth), 0.0f, 1.0f) : 0.0f;
+}
+
+void AMyPawn::CreateCarUI()
+{
+	if (CarUIInstance || !CarUIClass)
+	{
+		return;
+	}
+
+	APlayerController* PlayerController = Cast<APlayerController>(GetController());
+	if (!PlayerController)
+	{
+		APlayerController* LocalPlayerController = UGameplayStatics::GetPlayerController(this, 0);
+		if (LocalPlayerController && LocalPlayerController->GetPawn() == this)
+		{
+			PlayerController = LocalPlayerController;
+		}
+	}
+
+	if (!PlayerController)
+	{
+		return;
+	}
+
+	CarUIInstance = CreateWidget<UUserWidget>(PlayerController, CarUIClass);
+	if (CarUIInstance)
+	{
+		CarUIInstance->AddToViewport();
+	}
+}
+
+void AMyPawn::ApplyDrivingInputMode()
+{
+	APlayerController* PlayerController = Cast<APlayerController>(GetController());
+	if (!PlayerController)
+	{
+		APlayerController* LocalPlayerController = UGameplayStatics::GetPlayerController(this, 0);
+		if (LocalPlayerController && LocalPlayerController->GetPawn() == this)
+		{
+			PlayerController = LocalPlayerController;
+		}
+	}
+
+	if (!PlayerController)
+	{
+		return;
+	}
+
+	FInputModeGameOnly InputMode;
+	PlayerController->SetInputMode(InputMode);
+	PlayerController->SetShowMouseCursor(false);
+	PlayerController->ResetIgnoreMoveInput();
+	PlayerController->ResetIgnoreLookInput();
 }
 
 void AMyPawn::RefillNitro(float Amount)
@@ -265,6 +376,17 @@ void AMyPawn::ApplyTrafficHitPenalty(float Duration, float ForcedThrottle)
 	TrafficPenaltyThrottle = FMath::Clamp(ForcedThrottle, 0.0f, 1.0f);
 	CurrentTargetThrottle = FMath::Min(CurrentTargetThrottle, MinimumThrottle);
 	CancelNitro();
+}
+
+void AMyPawn::ApplyDamage(int32 DamageAmount)
+{
+	const int32 PreviousHealth = Health;
+	Health = FMath::Clamp(Health - FMath::Max(0, DamageAmount), 0, MaxHealth);
+
+	if (GEngine && PreviousHealth != Health)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 1.5f, FColor::Red, FString::Printf(TEXT("Health: %d"), Health));
+	}
 }
 
 bool AMyPawn::ConsumeNitro(float Amount)
@@ -299,11 +421,13 @@ void AMyPawn::HandleSteeringInput(const FInputActionValue& Value)
 
 void AMyPawn::HandleHandbrakeStart(const FInputActionValue& Value)
 {
+	bHandbrakeHeld = true;
 	DoHandbrakeStart();
 }
 
 void AMyPawn::HandleHandbrakeStop(const FInputActionValue& Value)
 {
+	bHandbrakeHeld = false;
 	DoHandbrakeStop();
 }
 

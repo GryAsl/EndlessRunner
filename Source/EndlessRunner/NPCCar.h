@@ -20,6 +20,7 @@ public:
 	ANPCCar();
 
 	virtual void Tick(float DeltaSeconds) override;
+	virtual void NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
 
 	void InitializeNPC(const FVector& InMovementDirection, float InSpeedKmh, float InThrottleValue);
 
@@ -32,6 +33,18 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "NPC Car")
 	TObjectPtr<UStaticMeshComponent> CarMesh;
 
+	UPROPERTY(VisibleAnywhere, Category = "NPC Car")
+	TObjectPtr<UStaticMeshComponent> WheelFrontLeft;
+
+	UPROPERTY(VisibleAnywhere, Category = "NPC Car")
+	TObjectPtr<UStaticMeshComponent> WheelFrontRight;
+
+	UPROPERTY(VisibleAnywhere, Category = "NPC Car")
+	TObjectPtr<UStaticMeshComponent> WheelBackLeft;
+
+	UPROPERTY(VisibleAnywhere, Category = "NPC Car")
+	TObjectPtr<UStaticMeshComponent> WheelBackRight;
+
 	UPROPERTY(EditAnywhere, Category = "NPC Car")
 	float DefaultSpeedKmh = 90.0f;
 
@@ -39,7 +52,7 @@ protected:
 	float DefaultThrottleValue = 0.75f;
 
 	UPROPERTY(EditAnywhere, Category = "NPC Car")
-	float LifeSeconds = 18.0f;
+	float LifeSeconds = 36.0f;
 
 	UPROPERTY(EditAnywhere, Category = "NPC Car")
 	float PlayerHitRadius = 260.0f;
@@ -58,10 +71,12 @@ protected:
 
 private:
 	void TryHitPlayer(AActor* OtherActor, UPrimitiveComponent* OtherComponent);
+	void BecomePhysicsActor();
 
 	FVector MovementDirection = FVector::ForwardVector;
 	float SpeedKmh = 90.0f;
 	float ThrottleValue = 0.75f;
 	float AliveSeconds = 0.0f;
 	bool bHitPlayer = false;
+	bool bPhysicsActor = false;
 };

@@ -1,0 +1,28 @@
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/GameModeBase.h"
+#include "MainMenuGameMode.generated.h"
+
+class UUserWidget;
+
+UCLASS()
+class AMainMenuGameMode : public AGameModeBase
+{
+	GENERATED_BODY()
+
+public:
+	AMainMenuGameMode();
+
+protected:
+	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere, Category = "Main Menu")
+	TSubclassOf<UUserWidget> MainMenuClass;
+
+private:
+	UPROPERTY()
+	TObjectPtr<UUserWidget> MainMenuInstance;
+};

@@ -1,0 +1,324 @@
+Begin Object Class=/Script/UMGEditor.WidgetBlueprint Name="PlayerHealthBar_WB" ExportPath="/Script/UMGEditor.WidgetBlueprint'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB'"
+   Begin Object Class=/Script/Engine.EdGraph Name="Construct" ExportPath="/Script/Engine.EdGraph'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Construct'"
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_0" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Construct.K2Node_CallFunction_0'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_FunctionEntry Name="K2Node_FunctionEntry_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionEntry'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Construct.K2Node_FunctionEntry_0'"
+      End Object
+   End Object
+   Begin Object Class=/Script/Engine.EdGraph Name="Get_ProgressBar_Percent" ExportPath="/Script/Engine.EdGraph'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent'"
+      Begin Object Class=/Script/BlueprintGraph.K2Node_PromotableOperator Name="K2Node_PromotableOperator_0" ExportPath="/Script/BlueprintGraph.K2Node_PromotableOperator'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent.K2Node_PromotableOperator_0'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="K2Node_VariableGet_2" ExportPath="/Script/BlueprintGraph.K2Node_VariableGet'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent.K2Node_VariableGet_2'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="K2Node_VariableGet_0" ExportPath="/Script/BlueprintGraph.K2Node_VariableGet'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent.K2Node_VariableGet_0'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_FunctionResult Name="K2Node_FunctionResult_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionResult'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent.K2Node_FunctionResult_0'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_FunctionEntry Name="K2Node_FunctionEntry_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionEntry'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent.K2Node_FunctionEntry_0'"
+      End Object
+   End Object
+   Begin Object Class=/Script/Engine.EdGraph Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph'"
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_2" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_CallFunction_2'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_VariableGet Name="K2Node_VariableGet_0" ExportPath="/Script/BlueprintGraph.K2Node_VariableGet'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_VariableGet_0'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_VariableSet Name="K2Node_VariableSet_0" ExportPath="/Script/BlueprintGraph.K2Node_VariableSet'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_VariableSet_0'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_CallFunction Name="K2Node_CallFunction_0" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_CallFunction_0'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_DynamicCast Name="K2Node_DynamicCast_0" ExportPath="/Script/BlueprintGraph.K2Node_DynamicCast'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_DynamicCast_0'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_Event Name="K2Node_Event_2" ExportPath="/Script/BlueprintGraph.K2Node_Event'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_Event_2'"
+      End Object
+      Begin Object Class=/Script/BlueprintGraph.K2Node_Event Name="K2Node_Event_1" ExportPath="/Script/BlueprintGraph.K2Node_Event'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_Event_1'"
+      End Object
+   End Object
+   Begin Object Class=/Script/UMG.WidgetAnimation Name="FadeIn" ExportPath="/Script/UMG.WidgetAnimation'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn'"
+      Begin Object Class=/Script/MovieScene.MovieScene Name="FadeIn" ExportPath="/Script/MovieScene.MovieScene'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn'"
+         Begin Object Class=/Script/MovieSceneTracks.MovieSceneFloatTrack Name="MovieSceneFloatTrack_1" ExportPath="/Script/MovieSceneTracks.MovieSceneFloatTrack'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn.MovieSceneFloatTrack_1'"
+            Begin Object Class=/Script/MovieSceneTracks.MovieSceneFloatSection Name="MovieSceneFloatSection_0" ExportPath="/Script/MovieSceneTracks.MovieSceneFloatSection'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn.MovieSceneFloatTrack_1.MovieSceneFloatSection_0'"
+               Begin Object Class=/Script/MovieScene.MovieSceneBuiltInEasingFunction Name="EaseOutFunction" Archetype="/Script/MovieScene.MovieSceneBuiltInEasingFunction'/Script/MovieSceneTracks.Default__MovieSceneFloatSection:EaseOutFunction'" ExportPath="/Script/MovieScene.MovieSceneBuiltInEasingFunction'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn.MovieSceneFloatTrack_1.MovieSceneFloatSection_0.EaseOutFunction'"
+               End Object
+               Begin Object Class=/Script/MovieScene.MovieSceneBuiltInEasingFunction Name="EaseInFunction" Archetype="/Script/MovieScene.MovieSceneBuiltInEasingFunction'/Script/MovieSceneTracks.Default__MovieSceneFloatSection:EaseInFunction'" ExportPath="/Script/MovieScene.MovieSceneBuiltInEasingFunction'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn.MovieSceneFloatTrack_1.MovieSceneFloatSection_0.EaseInFunction'"
+               End Object
+            End Object
+         End Object
+         Begin Object Class=/Script/MovieScene.MovieSceneNodeGroupCollection Name="NodeGroupCollection" Archetype="/Script/MovieScene.MovieSceneNodeGroupCollection'/Script/MovieScene.Default__MovieScene:NodeGroupCollection'" ExportPath="/Script/MovieScene.MovieSceneNodeGroupCollection'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn.NodeGroupCollection'"
+         End Object
+      End Object
+   End Object
+   Begin Object Class=/Script/UMG.WidgetTree Name="WidgetTree" Archetype="/Script/UMG.WidgetTree'/Script/UMGEditor.Default__WidgetBlueprint:WidgetTree'" ExportPath="/Script/UMG.WidgetTree'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree'"
+      Begin Object Class=/Script/UMG.ProgressBar Name="ProgressBarBackground" ExportPath="/Script/UMG.ProgressBar'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree.ProgressBarBackground'"
+      End Object
+      Begin Object Class=/Script/UMG.ProgressBar Name="ProgressBar" ExportPath="/Script/UMG.ProgressBar'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree.ProgressBar'"
+      End Object
+      Begin Object Class=/Script/UMG.CanvasPanel Name="CanvasPanel_41" ExportPath="/Script/UMG.CanvasPanel'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree.CanvasPanel_41'"
+         Begin Object Class=/Script/UMG.CanvasPanelSlot Name="CanvasPanelSlot_0" ExportPath="/Script/UMG.CanvasPanelSlot'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree.CanvasPanel_41.CanvasPanelSlot_0'"
+         End Object
+         Begin Object Class=/Script/UMG.CanvasPanelSlot Name="CanvasPanelSlot_3" ExportPath="/Script/UMG.CanvasPanelSlot'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree.CanvasPanel_41.CanvasPanelSlot_3'"
+         End Object
+      End Object
+   End Object
+   Begin Object Name="Construct" ExportPath="/Script/Engine.EdGraph'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Construct'"
+      Begin Object Name="K2Node_CallFunction_0" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Construct.K2Node_CallFunction_0'"
+         FunctionReference=(MemberName="ExecuteUbergraph_PlayerHealthBar_WB",bSelfContext=True)
+         NodePosX=300
+         NodePosY=-2000
+         bIsIntermediateNode=True
+         NodeGuid=31B6C8DA7E7C33259005E0793FFBC858
+         CustomProperties Pin (PinId=0919CADE4996C5E434427896FBF818FE,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_FunctionEntry_0 2AAC87204CFCFA693EE0BD8FEAE47E6A,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=815CFC2843349BB85355C7B1CA26DD5D,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=5E65499941D06A7713214C8AA0DB57CE,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="self",PinType.PinSubCategoryObject="/Script/UMG.WidgetBlueprintGeneratedClass'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.SKEL_PlayerHealthBar_WB_C'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=CF8C74AD4828FD35FE80DDBAFAB04443,PinName="EntryPoint",PinType.PinCategory="int",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0",AutogeneratedDefaultValue="0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_FunctionEntry_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionEntry'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Construct.K2Node_FunctionEntry_0'"
+         CustomGeneratedFunctionName="Construct"
+         FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/UMG.UserWidget'",MemberName="Construct")
+         NodePosX=-200
+         NodePosY=-2000
+         bIsIntermediateNode=True
+         NodeGuid=7B41C29CDD0532208FFFA45ADBB06EA7
+         CustomProperties Pin (PinId=2AAC87204CFCFA693EE0BD8FEAE47E6A,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_CallFunction_0 0919CADE4996C5E434427896FBF818FE,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      Nodes(0)="/Script/BlueprintGraph.K2Node_FunctionEntry'K2Node_FunctionEntry_0'"
+      Nodes(1)="/Script/BlueprintGraph.K2Node_CallFunction'K2Node_CallFunction_0'"
+      GraphGuid=B90460774E232BBBFFBE009E5DF43A5C
+   End Object
+   Begin Object Name="Get_ProgressBar_Percent" ExportPath="/Script/Engine.EdGraph'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent'"
+      Begin Object Name="K2Node_PromotableOperator_0" ExportPath="/Script/BlueprintGraph.K2Node_PromotableOperator'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent.K2Node_PromotableOperator_0'"
+         OperationName="Divide"
+         bDefaultsToPureFunc=True
+         FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.KismetMathLibrary'",MemberName="Divide_DoubleDouble")
+         NodePosX=576
+         NodePosY=80
+         NodeGuid=E849E9F14CC5C7E163FEE79A88B17EEF
+         CustomProperties Pin (PinId=C6FC481440C733D8E70AEE90E58D7F66,PinName="A",PinType.PinCategory="real",PinType.PinSubCategory="double",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_VariableGet_2 F71AEE5A43F1ACFE0448D7831134E72C,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=477AE9F54D52614B44E7298697FA40B4,PinName="B",PinType.PinCategory="real",PinType.PinSubCategory="double",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="100.000000",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=E26B46A641DC5510691C2D9B61AB81DC,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="real",PinType.PinSubCategory="double",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_FunctionResult_0 3832C4F047AC6F06EF09199927A120C6,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_VariableGet_2" ExportPath="/Script/BlueprintGraph.K2Node_VariableGet'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent.K2Node_VariableGet_2'"
+         VariableReference=(MemberParent="/Script/Engine.BlueprintGeneratedClass'/Game/Bora/Blueprints/CharacterBlueprints/C_SpellCharacter.C_SpellCharacter_C'",MemberName="health",MemberGuid=6E27C68945E5B50224C807959B34D02E)
+         SelfContextInfo=NotSelfContext
+         NodePosX=304
+         NodePosY=80
+         NodeGuid=1F9D8FB346E3CEA765C020A953D3A8E5
+         CustomProperties Pin (PinId=F71AEE5A43F1ACFE0448D7831134E72C,PinName="health",Direction="EGPD_Output",PinType.PinCategory="real",PinType.PinSubCategory="double",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(K2Node_PromotableOperator_0 C6FC481440C733D8E70AEE90E58D7F66,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=48167DC54F8674A487E65FBFEDBC32AF,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/Bora/Blueprints/CharacterBlueprints/C_SpellCharacter.C_SpellCharacter_C'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_VariableGet_0 EBFA06414D0276323557EC98245992C3,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_VariableGet_0" ExportPath="/Script/BlueprintGraph.K2Node_VariableGet'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent.K2Node_VariableGet_0'"
+         VariableReference=(MemberName="As C Spell Character",MemberGuid=AE9ED23B49755AB365D8E596F3A65424,bSelfContext=True)
+         NodePosX=48
+         NodePosY=80
+         NodeGuid=74AFCC894604EF4948D455B1717D773A
+         CustomProperties Pin (PinId=EBFA06414D0276323557EC98245992C3,PinName="As C Spell Character",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/Bora/Blueprints/CharacterBlueprints/C_SpellCharacter.C_SpellCharacter_C'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_VariableGet_2 48167DC54F8674A487E65FBFEDBC32AF,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=F51E01AD40F4E3A7A2A63390C0A3A2E5,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/UMG.WidgetBlueprintGeneratedClass'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB_C'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_FunctionResult_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionResult'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent.K2Node_FunctionResult_0'"
+         FunctionReference=(MemberName="Get_ProgressBar_Percent")
+         bIsEditable=True
+         NodePosX=1056
+         NodeGuid=EF9F95CB49593554B4C64285DCB5DD76
+         CustomProperties Pin (PinId=F7964883421CBCBE59387DB2ACBE7E5F,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_FunctionEntry_0 18014FA442197BF14522F78439337E2F,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=3832C4F047AC6F06EF09199927A120C6,PinName="ReturnValue",PinType.PinCategory="real",PinType.PinSubCategory="float",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",LinkedTo=(K2Node_PromotableOperator_0 E26B46A641DC5510691C2D9B61AB81DC,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties UserDefinedPin (PinName="ReturnValue",PinType=(PinCategory="real",PinSubCategory="float"),DesiredPinDirection=EGPD_Input)
+      End Object
+      Begin Object Name="K2Node_FunctionEntry_0" ExportPath="/Script/BlueprintGraph.K2Node_FunctionEntry'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent.K2Node_FunctionEntry_0'"
+         ExtraFlags=469893120
+         FunctionReference=(MemberName="Get_ProgressBar_Percent")
+         bIsEditable=True
+         NodeGuid=770F359B4E1DEDE7CB4324A167CA09EC
+         CustomProperties Pin (PinId=18014FA442197BF14522F78439337E2F,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_FunctionResult_0 F7964883421CBCBE59387DB2ACBE7E5F,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      Nodes(0)="/Script/BlueprintGraph.K2Node_FunctionEntry'K2Node_FunctionEntry_0'"
+      Nodes(1)="/Script/BlueprintGraph.K2Node_FunctionResult'K2Node_FunctionResult_0'"
+      Nodes(2)="/Script/BlueprintGraph.K2Node_VariableGet'K2Node_VariableGet_0'"
+      Nodes(3)="/Script/BlueprintGraph.K2Node_VariableGet'K2Node_VariableGet_2'"
+      Nodes(4)="/Script/BlueprintGraph.K2Node_PromotableOperator'K2Node_PromotableOperator_0'"
+      GraphGuid=B385CD334537386038821C9B981AAF88
+   End Object
+   Begin Object Name="EventGraph" ExportPath="/Script/Engine.EdGraph'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph'"
+      Begin Object Name="K2Node_CallFunction_2" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_CallFunction_2'"
+         FunctionReference=(MemberName="PlayAnimation",bSelfContext=True)
+         NodePosX=960
+         NodePosY=192
+         NodeGuid=DA3FAEA64A8E2EFBE00A8DB1001AB7F7
+         CustomProperties Pin (PinId=08687B394BA44D50BBD7C2BF8470B250,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_VariableSet_0 C06FA80D46AB5D52A3C39DA0FD2F28BA,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=2B5095594CD7727DE981368CFF7B15C0,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=02A2553F4D8E7BAD807E08912AAD806B,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/UMG.UserWidget'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=D6E207EB432123A74D28598F1EF8E879,PinName="InAnimation",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/UMG.WidgetAnimation'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_VariableGet_0 269E3324400FEF74092B81B8736E5896,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=A33BFB9046F2DC178EF5CAA5754D4AE7,PinName="StartAtTime",PinType.PinCategory="real",PinType.PinSubCategory="float",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0.000000",AutogeneratedDefaultValue="0.000000",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=63D9818E451B34C0D02EB2959DEACF30,PinName="NumLoopsToPlay",PinType.PinCategory="int",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="1",AutogeneratedDefaultValue="1",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=9C46AA9244A335BF3A24079EF3A6BE29,PinName="PlayMode",PinType.PinCategory="byte",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Enum'/Script/UMG.EUMGSequencePlayMode'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="Forward",AutogeneratedDefaultValue="Forward",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=C59B352E408A7F2370F576930B4C4E61,PinName="PlaybackSpeed",PinType.PinCategory="real",PinType.PinSubCategory="float",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="1.000000",AutogeneratedDefaultValue="1.000000",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=4D87D857460EAC1BF0AB63B36FAE81DD,PinName="bRestoreState",PinType.PinCategory="bool",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="false",AutogeneratedDefaultValue="false",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=6610304843720DA93A0CA7B38C5293E5,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/UMG.WidgetAnimationHandle'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_VariableGet_0" ExportPath="/Script/BlueprintGraph.K2Node_VariableGet'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_VariableGet_0'"
+         VariableReference=(MemberName="FadeIn",MemberGuid=32A4D67F4976438069881088D7CDD665,bSelfContext=True)
+         NodePosX=752
+         NodePosY=320
+         NodeGuid=240ED2FC41C15C59E8CA3F8A14D02316
+         CustomProperties Pin (PinId=269E3324400FEF74092B81B8736E5896,PinName="FadeIn",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/UMG.WidgetAnimation'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_CallFunction_2 D6E207EB432123A74D28598F1EF8E879,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=C9B132D74C67588EB4FDF5A4C7101FDE,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/UMG.WidgetBlueprintGeneratedClass'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB_C'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_VariableSet_0" ExportPath="/Script/BlueprintGraph.K2Node_VariableSet'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_VariableSet_0'"
+         VariableReference=(MemberName="As C Spell Character",MemberGuid=AE9ED23B49755AB365D8E596F3A65424,bSelfContext=True)
+         NodePosX=672
+         NodePosY=224
+         NodeGuid=FCD2A3AF43AD90F36A7542B734D0A27F
+         CustomProperties Pin (PinId=BBDB665B449DB17DED40479F6B489062,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_DynamicCast_0 9A4400A64C1D209DF24F92B7822B6CD8,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=C06FA80D46AB5D52A3C39DA0FD2F28BA,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_CallFunction_2 08687B394BA44D50BBD7C2BF8470B250,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=687671DA474EAEFE647717BDA29E31B8,PinName="As C Spell Character",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/Bora/Blueprints/CharacterBlueprints/C_SpellCharacter.C_SpellCharacter_C'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_DynamicCast_0 3401AA7044830CD21A28589FBD36C136,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=58AA47B04569219542767FBDC1872D5E,PinName="Output_Get",PinToolTip="Retrieves the value of the variable, can use instead of a separate Get node",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/Bora/Blueprints/CharacterBlueprints/C_SpellCharacter.C_SpellCharacter_C'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=B5B049AA44819AC995E75CB71BE356D0,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/UMG.WidgetBlueprintGeneratedClass'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB_C'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_CallFunction_0" ExportPath="/Script/BlueprintGraph.K2Node_CallFunction'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_CallFunction_0'"
+         bDefaultsToPureFunc=True
+         FunctionReference=(MemberParent="/Script/CoreUObject.Class'/Script/Engine.GameplayStatics'",MemberName="GetPlayerPawn")
+         NodePosY=272
+         NodeGuid=8B3C91BC457C8633E218F3AA7355080F
+         CustomProperties Pin (PinId=6494EAE04E9344626887AF8357DD955F,PinName="self",PinFriendlyName=NSLOCTEXT("K2Node", "Target", "Target"),PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.GameplayStatics'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultObject="/Script/Engine.Default__GameplayStatics",PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=B99CDD4041C494AF8D622A80A71C0B34,PinName="WorldContextObject",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/CoreUObject.Object'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=True,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=9339E168478E03BDB0396AAD23B83A8E,PinName="PlayerIndex",PinType.PinCategory="int",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0",AutogeneratedDefaultValue="0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=372DC95B4F7067140C7F1E868E85EEC8,PinName="ReturnValue",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/Engine.Pawn'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_DynamicCast_0 AE97F13E4D6785F6730D01BFFA9A353F,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_DynamicCast_0" ExportPath="/Script/BlueprintGraph.K2Node_DynamicCast'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_DynamicCast_0'"
+         TargetType="/Script/Engine.BlueprintGeneratedClass'/Game/Bora/Blueprints/CharacterBlueprints/C_SpellCharacter.C_SpellCharacter_C'"
+         NodePosX=336
+         NodePosY=208
+         NodeGuid=505F603B497E5FCC76693C8A8113F6E9
+         CustomProperties Pin (PinId=B8750C764539B67E1A8B86B790F478D3,PinName="execute",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_Event_1 5C6AA81A459D567F147419B1F80CF702,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=9A4400A64C1D209DF24F92B7822B6CD8,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_VariableSet_0 BBDB665B449DB17DED40479F6B489062,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=1DC7A12D49D89FCE81CE97BB38805C31,PinName="CastFailed",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=AE97F13E4D6785F6730D01BFFA9A353F,PinName="Object",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.Class'/Script/CoreUObject.Object'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_CallFunction_0 372DC95B4F7067140C7F1E868E85EEC8,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=3401AA7044830CD21A28589FBD36C136,PinName="AsC Spell Character",Direction="EGPD_Output",PinType.PinCategory="object",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/Bora/Blueprints/CharacterBlueprints/C_SpellCharacter.C_SpellCharacter_C'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_VariableSet_0 687671DA474EAEFE647717BDA29E31B8,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=9C843C654A113B4297DD01B6B8128CD7,PinName="bSuccess",Direction="EGPD_Output",PinType.PinCategory="bool",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=True,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_Event_2" ExportPath="/Script/BlueprintGraph.K2Node_Event'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_Event_2'"
+         EventReference=(MemberParent="/Script/CoreUObject.Class'/Script/UMG.UserWidget'",MemberName="Tick")
+         bOverrideFunction=True
+         NodePosX=16
+         NodePosY=592
+         EnabledState=Disabled
+         bCommentBubblePinned=True
+         bCommentBubbleVisible=True
+         NodeComment="This node is disabled and will not be called.\nDrag off pins to build functionality."
+         NodeGuid=2F92DB734F325835FD594CBA899119F6
+         CustomProperties Pin (PinId=6ADEE993421D311444A6899360735D26,PinName="OutputDelegate",Direction="EGPD_Output",PinType.PinCategory="delegate",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(MemberParent="/Script/CoreUObject.Class'/Script/UMG.UserWidget'",MemberName="Tick"),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=210BE12B44E31CDD27281AAFBF1A7019,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=1EF05B784B7447C9769A54B5178E3885,PinName="MyGeometry",PinToolTip="My Geometry\nGeometry Structure\n\nThe space allotted for this widget",Direction="EGPD_Output",PinType.PinCategory="struct",PinType.PinSubCategory="",PinType.PinSubCategoryObject="/Script/CoreUObject.ScriptStruct'/Script/SlateCore.Geometry'",PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=7EC82F264EA1CEE55A25EDBE0643D096,PinName="InDeltaTime",PinToolTip="In Delta Time\nFloat (single-precision)\n\nReal time passed since last tick",Direction="EGPD_Output",PinType.PinCategory="real",PinType.PinSubCategory="float",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,DefaultValue="0.0",AutogeneratedDefaultValue="0.0",PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Begin Object Name="K2Node_Event_1" ExportPath="/Script/BlueprintGraph.K2Node_Event'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph.K2Node_Event_1'"
+         EventReference=(MemberParent="/Script/CoreUObject.Class'/Script/UMG.UserWidget'",MemberName="Construct")
+         bOverrideFunction=True
+         NodePosY=208
+         bCommentBubblePinned=True
+         NodeGuid=A0F17D524189016030E8A9842BAF726E
+         CustomProperties Pin (PinId=2C79663B44611B56F3A76C88525B47CC,PinName="OutputDelegate",Direction="EGPD_Output",PinType.PinCategory="delegate",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(MemberParent="/Script/CoreUObject.Class'/Script/UMG.UserWidget'",MemberName="Construct"),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+         CustomProperties Pin (PinId=5C6AA81A459D567F147419B1F80CF702,PinName="then",Direction="EGPD_Output",PinType.PinCategory="exec",PinType.PinSubCategory="",PinType.PinSubCategoryObject=None,PinType.PinSubCategoryMemberReference=(),PinType.PinValueType=(),PinType.ContainerType=None,PinType.bIsReference=False,PinType.bIsConst=False,PinType.bIsWeakPointer=False,PinType.bIsUObjectWrapper=False,PinType.bSerializeAsSinglePrecisionFloat=False,LinkedTo=(K2Node_DynamicCast_0 B8750C764539B67E1A8B86B790F478D3,),PersistentGuid=00000000000000000000000000000000,bHidden=False,bNotConnectable=False,bDefaultValueIsReadOnly=False,bDefaultValueIsIgnored=False,bAdvancedView=False,bOrphanedPin=False,)
+      End Object
+      Schema="/Script/CoreUObject.Class'/Script/BlueprintGraph.EdGraphSchema_K2'"
+      Nodes(0)="/Script/BlueprintGraph.K2Node_Event'K2Node_Event_1'"
+      Nodes(1)="/Script/BlueprintGraph.K2Node_Event'K2Node_Event_2'"
+      Nodes(2)="/Script/BlueprintGraph.K2Node_DynamicCast'K2Node_DynamicCast_0'"
+      Nodes(3)="/Script/BlueprintGraph.K2Node_CallFunction'K2Node_CallFunction_0'"
+      Nodes(4)="/Script/BlueprintGraph.K2Node_VariableSet'K2Node_VariableSet_0'"
+      Nodes(5)="/Script/BlueprintGraph.K2Node_VariableGet'K2Node_VariableGet_0'"
+      Nodes(6)="/Script/BlueprintGraph.K2Node_CallFunction'K2Node_CallFunction_2'"
+      bAllowDeletion=False
+      GraphGuid=FE6385FE48A61423CAD32BBA98EE33CC
+   End Object
+   Begin Object Name="FadeIn" ExportPath="/Script/UMG.WidgetAnimation'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn'"
+      Begin Object Name="FadeIn" ExportPath="/Script/MovieScene.MovieScene'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn'"
+         Begin Object Name="MovieSceneFloatTrack_1" ExportPath="/Script/MovieSceneTracks.MovieSceneFloatTrack'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn.MovieSceneFloatTrack_1'"
+            Begin Object Name="MovieSceneFloatSection_0" ExportPath="/Script/MovieSceneTracks.MovieSceneFloatSection'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn.MovieSceneFloatTrack_1.MovieSceneFloatSection_0'"
+               Begin Object Name="EaseOutFunction" ExportPath="/Script/MovieScene.MovieSceneBuiltInEasingFunction'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn.MovieSceneFloatTrack_1.MovieSceneFloatSection_0.EaseOutFunction'"
+               End Object
+               Begin Object Name="EaseInFunction" ExportPath="/Script/MovieScene.MovieSceneBuiltInEasingFunction'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn.MovieSceneFloatTrack_1.MovieSceneFloatSection_0.EaseInFunction'"
+               End Object
+               FloatCurve=(Times=((),(Value=60000)),Values=((),(Value=1.000000)))
+               Easing=(EaseIn=MovieSceneBuiltInEasingFunction'PlayerHealthBar_WB:FadeIn.FadeIn.MovieSceneFloatTrack_1.MovieSceneFloatSection_0.EaseInFunction',EaseOut=MovieSceneBuiltInEasingFunction'PlayerHealthBar_WB:FadeIn.FadeIn.MovieSceneFloatTrack_1.MovieSceneFloatSection_0.EaseOutFunction')
+               SectionRange=Inclusive:0:Inclusive:60000
+               Signature=65D626304C34A866AECACAA0374A83EA
+            End Object
+            PropertyBinding=(PropertyName="RenderOpacity",PropertyPath="RenderOpacity",bCanUseClassLookup=True)
+            Sections(0)="/Script/MovieSceneTracks.MovieSceneFloatSection'MovieSceneFloatSection_0'"
+            DisplayName=NSLOCTEXT("UObjectDisplayNames", "Widget:RenderOpacity", "Render Opacity")
+            EvaluationFieldGuid=885F1B2146304CEDCF359C9E2F3F90D9
+            EvaluationField=(Entries=((Section="/Script/MovieSceneTracks.MovieSceneFloatSection'MovieSceneFloatSection_0'",Range=(LowerBound=(Type=Inclusive),UpperBound=(Type=Inclusive,Value=(Value=60000))),ForcedTime=(Value=-2147483648))))
+            Signature=885F1B2146304CEDCF359C9E2F3F90D9
+         End Object
+         Begin Object Name="NodeGroupCollection" ExportPath="/Script/MovieScene.MovieSceneNodeGroupCollection'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:FadeIn.FadeIn.NodeGroupCollection'"
+         End Object
+         Possessables(0)=(Guid=AA388EA54883BCDBCEE9E4AED7F0F129,Name="CanvasPanel_41",PossessedObjectClass="/Script/UMG.CanvasPanel")
+         ObjectBindings(0)=(ObjectGuid=AA388EA54883BCDBCEE9E4AED7F0F129,BindingName="CanvasPanel_41",Tracks=("/Script/MovieSceneTracks.MovieSceneFloatTrack'MovieSceneFloatTrack_1'"))
+         PlaybackRange=Inclusive:0:Exclusive:60001
+         DisplayRate=(Numerator=20)
+         EditorData=(ViewStart=-0.500002,ViewEnd=5.500018,WorkStart=-0.500002,WorkEnd=5.500018)
+         Signature=BBC035F241142ED07B0925A057F854BB
+      End Object
+      MovieScene="/Script/MovieScene.MovieScene'FadeIn'"
+      AnimationBindings(0)=(WidgetName="CanvasPanel_41",AnimationGuid=AA388EA54883BCDBCEE9E4AED7F0F129)
+      DisplayLabel="FadeIn"
+      Signature=580980C74DB887B982E9D3AB6FE59717
+   End Object
+   Begin Object Name="WidgetTree" ExportPath="/Script/UMG.WidgetTree'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree'"
+      Begin Object Name="ProgressBarBackground" ExportPath="/Script/UMG.ProgressBar'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree.ProgressBarBackground'"
+         WidgetStyle=(BackgroundImage=(TintColor=(SpecifiedColor=(R=0.000000,G=0.000000,B=0.000000,A=1.000000)),DrawAs=RoundedBox,Margin=(Left=0.416667,Top=0.416667,Right=0.416667,Bottom=0.416667),OutlineSettings=(Width=4.000000)),FillImage=(DrawAs=RoundedBox,Margin=(Left=0.416667,Top=0.416667,Right=0.416667,Bottom=0.416667)))
+         FillColorAndOpacity=(R=0.000000,G=0.000000,B=0.000000,A=1.000000)
+         Slot="/Script/UMG.CanvasPanelSlot'PlayerHealthBar_WB:WidgetTree.CanvasPanel_41.CanvasPanelSlot_3'"
+         DisplayLabel="ProgressBarBackground"
+      End Object
+      Begin Object Name="ProgressBar" ExportPath="/Script/UMG.ProgressBar'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree.ProgressBar'"
+         WidgetStyle=(BackgroundImage=(TintColor=(SpecifiedColor=(R=0.250000,G=0.000000,B=0.000000,A=1.000000)),DrawAs=RoundedBox,Margin=(Left=0.416667,Top=0.416667,Right=0.416667,Bottom=0.416667),OutlineSettings=(Width=8.000000)),FillImage=(DrawAs=RoundedBox,Margin=(Left=0.416667,Top=0.416667,Right=0.416667,Bottom=0.416667),OutlineSettings=(Width=8.000000)))
+         Percent=0.645605
+         FillColorAndOpacity=(R=1.000000,G=0.000000,B=0.000000,A=1.000000)
+         Slot="/Script/UMG.CanvasPanelSlot'PlayerHealthBar_WB:WidgetTree.CanvasPanel_41.CanvasPanelSlot_0'"
+         DisplayLabel="ProgressBar"
+      End Object
+      Begin Object Name="CanvasPanel_41" ExportPath="/Script/UMG.CanvasPanel'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree.CanvasPanel_41'"
+         Begin Object Name="CanvasPanelSlot_0" ExportPath="/Script/UMG.CanvasPanelSlot'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree.CanvasPanel_41.CanvasPanelSlot_0'"
+            LayoutData=(Offsets=(Left=80.000000,Top=-125.000000,Right=450.000000,Bottom=60.000000),Anchors=(Minimum=(X=0.000000,Y=1.000000),Maximum=(X=0.000000,Y=1.000000)))
+            Parent="/Script/UMG.CanvasPanel'PlayerHealthBar_WB:WidgetTree.CanvasPanel_41'"
+            Content="/Script/UMG.ProgressBar'PlayerHealthBar_WB:WidgetTree.ProgressBar'"
+         End Object
+         Begin Object Name="CanvasPanelSlot_3" ExportPath="/Script/UMG.CanvasPanelSlot'/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:WidgetTree.CanvasPanel_41.CanvasPanelSlot_3'"
+            LayoutData=(Offsets=(Left=80.000000,Top=-125.000000,Right=450.000000,Bottom=60.000000),Anchors=(Minimum=(X=0.000000,Y=1.000000),Maximum=(X=0.000000,Y=1.000000)))
+            Parent="/Script/UMG.CanvasPanel'PlayerHealthBar_WB:WidgetTree.CanvasPanel_41'"
+            Content="/Script/UMG.ProgressBar'PlayerHealthBar_WB:WidgetTree.ProgressBarBackground'"
+         End Object
+         Slots(0)="/Script/UMG.CanvasPanelSlot'CanvasPanelSlot_3'"
+         Slots(1)="/Script/UMG.CanvasPanelSlot'CanvasPanelSlot_0'"
+         bExpandedInDesigner=True
+      End Object
+      RootWidget="/Script/UMG.CanvasPanel'CanvasPanel_41'"
+   End Object
+   Bindings(0)=(ObjectName="ProgressBar",PropertyName="Percent",FunctionName="Get_ProgressBar_Percent",SourcePath=(Segments=((Struct="/Script/UMG.WidgetBlueprintGeneratedClass'PlayerHealthBar_WB_C'",MemberName="Get_ProgressBar_Percent",MemberGuid=B385CD334537386038821C9B981AAF88,IsProperty=False))),MemberGuid=B385CD334537386038821C9B981AAF88,Kind=Function)
+   Animations(0)="/Script/UMG.WidgetAnimation'FadeIn'"
+   WidgetVariableNameToGuidMap=(("CanvasPanel_41", 7CE371034085972B56F2869B50E1E230),("ProgressBar", DB9005D04E643E6D08747F80948EEA73),("ProgressBarBackground", BF3206AB4DE94DCC55A47F96D11AA8A4),("FadeIn", 32A4D67F4976438069881088D7CDD665))
+   TickPrediction=OnDemand
+   TickPredictionReason="Anim"
+   PropertyBindings=1
+   WidgetTree="WidgetTree"
+   ParentClass="/Script/CoreUObject.Class'/Script/UMG.UserWidget'"
+   BlueprintSystemVersion=2
+   UbergraphPages(0)="/Script/Engine.EdGraph'EventGraph'"
+   FunctionGraphs(0)="/Script/Engine.EdGraph'Get_ProgressBar_Percent'"
+   NewVariables(0)=(VarName="As C Spell Character",VarGuid=AE9ED23B49755AB365D8E596F3A65424,VarType=(PinCategory="object",PinSubCategoryObject="/Script/Engine.BlueprintGeneratedClass'/Game/Bora/Blueprints/CharacterBlueprints/C_SpellCharacter.C_SpellCharacter_C'"),FriendlyName="As C Spell Character",Category=NSLOCTEXT("KismetSchema", "Default", "Default"),PropertyFlags=67589)
+   GeneratedVariables(0)=(VarName="ProgressBarBackground",VarGuid=BF3206AB4DE94DCC55A47F96D11AA8A4,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/UMG.ProgressBar'"),FriendlyName="ProgressBarBackground",PropertyFlags=562952101494812,MetaDataArray=((DataKey="Category",DataValue="PlayerHealthBar_WB")))
+   GeneratedVariables(1)=(VarName="ProgressBar",VarGuid=DB9005D04E643E6D08747F80948EEA73,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/UMG.ProgressBar'"),FriendlyName="ProgressBar",PropertyFlags=562952101494812,MetaDataArray=((DataKey="Category",DataValue="PlayerHealthBar_WB")))
+   GeneratedVariables(2)=(VarName="FadeIn",VarGuid=32A4D67F4976438069881088D7CDD665,VarType=(PinCategory="object",PinSubCategoryObject="/Script/CoreUObject.Class'/Script/UMG.WidgetAnimation'",bIsReference=True),FriendlyName="FadeIn",PropertyFlags=2147491860,MetaDataArray=((DataKey="Category",DataValue="Animations")))
+   CategorySorting(0)="Event Graph"
+   CategorySorting(1)="Player Health Bar WB"
+   CategorySorting(2)=""
+   CategorySorting(3)="Default"
+   CategorySorting(4)="Animations"
+   LastEditedDocuments(0)=(EditedObjectPath="/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:Get_ProgressBar_Percent",SavedViewOffset=(X=-89.799927,Y=-513.625000),SavedZoomAmount=1.000000)
+   LastEditedDocuments(1)=(EditedObjectPath="/Game/Guray/Blueprints/Boss/PlayerHealthBar_WB.PlayerHealthBar_WB:EventGraph",SavedViewOffset=(X=326.615601,Y=-130.735199),SavedZoomAmount=1.000000)
+   GeneratedClass="/Script/UMG.WidgetBlueprintGeneratedClass'PlayerHealthBar_WB_C'"
+   bLegacyNeedToPurgeSkelRefs=False
+   BlueprintGuid=C3E379E4413A6004F84F8CA807909DD7
+End Object

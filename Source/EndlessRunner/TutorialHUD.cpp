@@ -19,6 +19,7 @@ void ATutorialHUD::DrawHUD()
 	const float TargetThrottle = MyPawn ? MyPawn->GetTargetThrottle() * 100.0f : 0.0f;
 	const float EffectiveThrottle = MyPawn ? MyPawn->GetEffectiveThrottle() * 100.0f : 0.0f;
 	const float NitroPercent = MyPawn ? MyPawn->GetNitroPercent() * 100.0f : 0.0f;
+	const int32 Health = MyPawn ? MyPawn->GetHealth() : 0;
 	const bool bNitroActive = MyPawn && MyPawn->IsNitroActive();
 
 	const float X = 40.0f;
@@ -45,6 +46,8 @@ void ATutorialHUD::DrawHUD()
 	Y += 28.0f;
 	DrawText(FString::Printf(TEXT("Nitro: %.0f%%"), NitroPercent), AccentColor, X, Y, GEngine->GetSmallFont(), Scale);
 	Y += 42.0f;
+	DrawText(FString::Printf(TEXT("Health: %d"), Health), Health > 30 ? TextColor : FColor::Red, X, Y, GEngine->GetSmallFont(), Scale);
+	Y += 28.0f;
 	DrawText(FString::Printf(TEXT("Distance: %.0f m"), DistanceMeters), TextColor, X, Y, GEngine->GetSmallFont(), Scale);
 	Y += 28.0f;
 
@@ -73,7 +76,17 @@ void ATutorialHUD::DrawHUD()
 	}
 	else if (RunState == EHighwayRunState::Lost)
 	{
-		DrawText(TEXT("ESCAPE FAILED - You stayed too slow for too long."), FColor::Red, X, Y, GEngine->GetSmallFont(), Scale);
+		const TCHAR* LoseMessage = TEXT("ESCAPE FAILED");
+		if (HighwayGameMode->GetLoseReason() == EHighwayLoseReason::LowSpeed)
+		{
+			LoseMessage = TEXT("ESCAPE FAILED - You stayed too slow for too long.");
+		}
+		else if (HighwayGameMode->GetLoseReason() == EHighwayLoseReason::NoHealth)
+		{
+			LoseMessage = TEXT("ESCAPE FAILED - Vehicle health depleted.");
+		}
+
+		DrawText(LoseMessage, FColor::Red, X, Y, GEngine->GetSmallFont(), Scale);
 		Y += 28.0f;
 		DrawText(FString::Printf(TEXT("Distance survived: %.0f m"), DistanceMeters), FColor::Red, X, Y, GEngine->GetSmallFont(), Scale);
 	}

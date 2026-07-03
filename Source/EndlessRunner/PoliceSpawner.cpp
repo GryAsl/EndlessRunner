@@ -23,7 +23,15 @@ void APoliceSpawner::BeginPlay()
 
 	if (bSpawnOnBeginPlay && GetWorld())
 	{
-		GetWorldTimerManager().SetTimer(SpawnTimerHandle, this, &APoliceSpawner::SpawnPolice, FMath::Max(0.0f, InitialSpawnDelay), false);
+		ScheduleNextSpawn(FMath::Max(0.0f, InitialSpawnDelay));
+	}
+}
+
+void APoliceSpawner::ScheduleNextSpawn(float Delay)
+{
+	if (GetWorld())
+	{
+		GetWorldTimerManager().SetTimer(SpawnTimerHandle, this, &APoliceSpawner::SpawnPolice, FMath::Max(0.0f, Delay), false);
 	}
 }
 
@@ -42,4 +50,7 @@ void APoliceSpawner::SpawnPolice()
 	{
 		SpawnedPolice->SetTargetPawn(Cast<AMyPawn>(UGameplayStatics::GetPlayerPawn(this, 0)));
 	}
+
+	const float NextDelay = FMath::FRandRange(SpawnIntervalMin, FMath::Max(SpawnIntervalMin, SpawnIntervalMax));
+	ScheduleNextSpawn(NextDelay);
 }

@@ -7,6 +7,7 @@
 #include "PoliceCar.generated.h"
 
 class AMyPawn;
+class USphereComponent;
 class UStaticMeshComponent;
 class UPrimitiveComponent;
 
@@ -44,8 +45,20 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Police|Visuals", meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<UStaticMeshComponent> WheelBackRight;
 
+	UPROPERTY(VisibleAnywhere, Category = "Police|Hit", meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<USphereComponent> HitTrigger;
+
 	UPROPERTY(EditAnywhere, Category = "Police|AI")
 	float ChaseThrottle = 1.0f;
+
+	UPROPERTY(EditAnywhere, Category = "Police|AI")
+	float EngineTorqueMultiplier = 2.6f;
+
+	UPROPERTY(EditAnywhere, Category = "Police|AI")
+	float MaxRPMMultiplier = 1.35f;
+
+	UPROPERTY(EditAnywhere, Category = "Police|AI")
+	float FinalRatioMultiplier = 1.3f;
 
 	UPROPERTY(EditAnywhere, Category = "Police|AI")
 	float SteeringSensitivity = 0.004f;
@@ -57,15 +70,15 @@ protected:
 	float PlayerHitRadius = 320.0f;
 
 	UPROPERTY(EditAnywhere, Category = "Police|Hit")
-	float PlayerHitPenaltyDuration = 1.5f;
-
-	UPROPERTY(EditAnywhere, Category = "Police|Hit")
-	float PlayerHitThrottle = 0.0f;
+	int32 PlayerHitDamage = 10;
 
 private:
 	AMyPawn* GetTargetPlayer() const;
 	void TryApplyPlayerHit(AActor* OtherActor, UPrimitiveComponent* OtherComponent);
 	void ApplyPlayerHit(AMyPawn* PlayerPawn);
+
+	UFUNCTION()
+	void HandleHitTriggerOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	TWeakObjectPtr<AMyPawn> TargetPawn;
 	bool bHasHitPlayer = false;

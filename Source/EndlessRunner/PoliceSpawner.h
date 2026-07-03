@@ -29,12 +29,19 @@ protected:
 	float InitialSpawnDelay = 2.0f;
 
 	UPROPERTY(EditAnywhere, Category = "Police")
+	float SpawnIntervalMin = 5.0f;
+
+	UPROPERTY(EditAnywhere, Category = "Police")
+	float SpawnIntervalMax = 10.0f;
+
+	UPROPERTY(EditAnywhere, Category = "Police")
 	float SpawnForwardOffset = 0.0f;
 
 	UPROPERTY(EditAnywhere, Category = "Police")
 	float SpawnUpOffset = 80.0f;
 
 private:
+	void ScheduleNextSpawn(float Delay);
 	void SpawnPolice();
 
 	FTimerHandle SpawnTimerHandle;

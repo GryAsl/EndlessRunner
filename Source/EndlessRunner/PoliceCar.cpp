@@ -5,8 +5,10 @@
 #include "Animation/AnimInstance.h"
 #include "ChaosWheeledVehicleMovementComponent.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Curves/CurveFloat.h"
+#include "Engine/Engine.h"
 #include "Engine/SkeletalMesh.h"
 #include "Engine/StaticMesh.h"
 #include "Kismet/GameplayStatics.h"
@@ -26,29 +28,37 @@ APoliceCar::APoliceCar()
 	ChassisGlass->SetupAttachment(GetMesh());
 	ChassisGlass->SetCollisionProfileName(FName("NoCollision"));
 
+	HitTrigger = CreateDefaultSubobject<USphereComponent>(TEXT("Hit Trigger"));
+	HitTrigger->SetupAttachment(GetMesh());
+	HitTrigger->SetSphereRadius(PlayerHitRadius);
+	HitTrigger->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	HitTrigger->SetCollisionObjectType(ECC_WorldDynamic);
+	HitTrigger->SetCollisionResponseToAllChannels(ECR_Overlap);
+	HitTrigger->SetGenerateOverlapEvents(true);
+
 	WheelFrontLeft = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Wheel Front Left"));
-	WheelFrontLeft->SetupAttachment(GetMesh(), FName("Phys_Wheel_FL"));
+	WheelFrontLeft->SetupAttachment(GetMesh());
 	WheelFrontLeft->SetCollisionProfileName(FName("NoCollision"));
-	WheelFrontLeft->SetRelativeLocation(FVector(5.0f, 0.0f, 0.0f));
-	WheelFrontLeft->SetRelativeRotation(FRotator(90.0f, 90.0f, 0.0f));
+	WheelFrontLeft->SetRelativeLocation(FVector::ZeroVector);
+	WheelFrontLeft->SetRelativeRotation(FRotator::ZeroRotator);
 
 	WheelFrontRight = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Wheel Front Right"));
-	WheelFrontRight->SetupAttachment(GetMesh(), FName("Phys_Wheel_FR"));
+	WheelFrontRight->SetupAttachment(GetMesh());
 	WheelFrontRight->SetCollisionProfileName(FName("NoCollision"));
-	WheelFrontRight->SetRelativeLocation(FVector(-5.0f, 0.0f, 0.0f));
-	WheelFrontRight->SetRelativeRotation(FRotator(90.0f, -90.0f, 0.0f));
+	WheelFrontRight->SetRelativeLocation(FVector::ZeroVector);
+	WheelFrontRight->SetRelativeRotation(FRotator::ZeroRotator);
 
 	WheelBackLeft = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Wheel Back Left"));
-	WheelBackLeft->SetupAttachment(GetMesh(), FName("Phys_Wheel_BL"));
+	WheelBackLeft->SetupAttachment(GetMesh());
 	WheelBackLeft->SetCollisionProfileName(FName("NoCollision"));
-	WheelBackLeft->SetRelativeLocation(FVector(5.0f, 0.0f, 0.0f));
-	WheelBackLeft->SetRelativeRotation(FRotator(90.0f, 90.0f, 0.0f));
+	WheelBackLeft->SetRelativeLocation(FVector::ZeroVector);
+	WheelBackLeft->SetRelativeRotation(FRotator::ZeroRotator);
 
 	WheelBackRight = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Wheel Back Right"));
-	WheelBackRight->SetupAttachment(GetMesh(), FName("Phys_Wheel_BR"));
+	WheelBackRight->SetupAttachment(GetMesh());
 	WheelBackRight->SetCollisionProfileName(FName("NoCollision"));
-	WheelBackRight->SetRelativeLocation(FVector(-5.0f, 0.0f, 0.0f));
-	WheelBackRight->SetRelativeRotation(FRotator(90.0f, -90.0f, 0.0f));
+	WheelBackRight->SetRelativeLocation(FVector::ZeroVector);
+	WheelBackRight->SetRelativeRotation(FRotator::ZeroRotator);
 
 	static ConstructorHelpers::FObjectFinder<USkeletalMesh> SportsCarMesh(TEXT("/Game/Vehicles/SportsCar/SKM_SportsCar.SKM_SportsCar"));
 	if (SportsCarMesh.Succeeded())
@@ -56,25 +66,36 @@ APoliceCar::APoliceCar()
 		GetMesh()->SetSkeletalMesh(SportsCarMesh.Object);
 	}
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ChassisMesh(TEXT("/Game/Vehicles/SportsCar/SM_SportsCar.SM_SportsCar"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ChassisMesh(TEXT("/Game/CitySampleVehicles/vehicle13_Car/Mesh/SM_vehCar_vehicle13_No_Wheel.SM_vehCar_vehicle13_No_Wheel"));
 	if (ChassisMesh.Succeeded())
 	{
 		ChassisMain->SetStaticMesh(ChassisMesh.Object);
 	}
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> GlassMesh(TEXT("/Game/Vehicles/SportsCar/SM_SportsCar_Glass.SM_SportsCar_Glass"));
-	if (GlassMesh.Succeeded())
+	ChassisGlass->SetVisibility(false);
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> FrontLeftWheelMesh(TEXT("/Game/CitySampleVehicles/vehicle13_Car/Mesh/SM_Wheel_Front_L_vehCar_vehicle13.SM_Wheel_Front_L_vehCar_vehicle13"));
+	if (FrontLeftWheelMesh.Succeeded())
 	{
-		ChassisGlass->SetStaticMesh(GlassMesh.Object);
+		WheelFrontLeft->SetStaticMesh(FrontLeftWheelMesh.Object);
 	}
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> WheelMesh(TEXT("/Game/Vehicles/SportsCar/SM_SportsCar_Wheel.SM_SportsCar_Wheel"));
-	if (WheelMesh.Succeeded())
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> FrontRightWheelMesh(TEXT("/Game/CitySampleVehicles/vehicle13_Car/Mesh/SM_Wheel_Front_R_vehCar_vehicle13.SM_Wheel_Front_R_vehCar_vehicle13"));
+	if (FrontRightWheelMesh.Succeeded())
 	{
-		WheelFrontLeft->SetStaticMesh(WheelMesh.Object);
-		WheelFrontRight->SetStaticMesh(WheelMesh.Object);
-		WheelBackLeft->SetStaticMesh(WheelMesh.Object);
-		WheelBackRight->SetStaticMesh(WheelMesh.Object);
+		WheelFrontRight->SetStaticMesh(FrontRightWheelMesh.Object);
+	}
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> RearLeftWheelMesh(TEXT("/Game/CitySampleVehicles/vehicle13_Car/Mesh/SM_Wheel_Rear_L_vehCar_vehicle13.SM_Wheel_Rear_L_vehCar_vehicle13"));
+	if (RearLeftWheelMesh.Succeeded())
+	{
+		WheelBackLeft->SetStaticMesh(RearLeftWheelMesh.Object);
+	}
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> RearRightWheelMesh(TEXT("/Game/CitySampleVehicles/vehicle13_Car/Mesh/SM_Wheel_Rear_R_vehCar_vehicle13.SM_Wheel_Rear_R_vehCar_vehicle13"));
+	if (RearRightWheelMesh.Succeeded())
+	{
+		WheelBackRight->SetStaticMesh(RearRightWheelMesh.Object);
 	}
 
 	static ConstructorHelpers::FClassFinder<UAnimInstance> SportsCarAnimClass(TEXT("/Game/Vehicles/SportsCar/ABP_SportsCar"));
@@ -89,6 +110,10 @@ APoliceCar::APoliceCar()
 	{
 		GetChaosVehicleMovement()->EngineSetup.TorqueCurve.ExternalCurve = TorqueCurveAsset.Object;
 	}
+
+	GetChaosVehicleMovement()->EngineSetup.MaxTorque *= EngineTorqueMultiplier;
+	GetChaosVehicleMovement()->EngineSetup.MaxRPM *= MaxRPMMultiplier;
+	GetChaosVehicleMovement()->TransmissionSetup.FinalRatio *= FinalRatioMultiplier;
 
 	GetMesh()->SetNotifyRigidBodyCollision(true);
 	GetMesh()->SetGenerateOverlapEvents(true);
@@ -108,11 +133,25 @@ void APoliceCar::BeginPlay()
 	GetChaosVehicleMovement()->SetRequiresControllerForInputs(false);
 	GetChaosVehicleMovement()->Activate(true);
 	GetMesh()->WakeAllRigidBodies();
+
+	if (HitTrigger)
+	{
+		HitTrigger->SetSphereRadius(PlayerHitRadius);
+		HitTrigger->OnComponentBeginOverlap.AddDynamic(this, &APoliceCar::HandleHitTriggerOverlap);
+	}
 }
 
 void APoliceCar::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
+
+	if (bHasHitPlayer)
+	{
+		GetChaosVehicleMovement()->SetThrottleInput(0.0f);
+		GetChaosVehicleMovement()->SetSteeringInput(0.0f);
+		GetChaosVehicleMovement()->SetBrakeInput(1.0f);
+		return;
+	}
 
 	AMyPawn* PlayerPawn = GetTargetPlayer();
 	if (!PlayerPawn)
@@ -130,7 +169,7 @@ void APoliceCar::Tick(float DeltaSeconds)
 	GetChaosVehicleMovement()->SetSteeringInput(SteeringInput);
 	GetChaosVehicleMovement()->SetBrakeInput(0.0f);
 
-	if (!bHasHitPlayer && FVector::DistSquared2D(PlayerPawn->GetActorLocation(), GetActorLocation()) <= FMath::Square(PlayerHitRadius))
+	if (FVector::DistSquared2D(PlayerPawn->GetActorLocation(), GetActorLocation()) <= FMath::Square(PlayerHitRadius))
 	{
 		ApplyPlayerHit(PlayerPawn);
 	}
@@ -169,6 +208,11 @@ void APoliceCar::TryApplyPlayerHit(AActor* OtherActor, UPrimitiveComponent* Othe
 	ApplyPlayerHit(PlayerPawn);
 }
 
+void APoliceCar::HandleHitTriggerOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	TryApplyPlayerHit(OtherActor, OtherComponent);
+}
+
 void APoliceCar::ApplyPlayerHit(AMyPawn* PlayerPawn)
 {
 	if (bHasHitPlayer || !PlayerPawn)
@@ -177,5 +221,10 @@ void APoliceCar::ApplyPlayerHit(AMyPawn* PlayerPawn)
 	}
 
 	bHasHitPlayer = true;
-	PlayerPawn->ApplyTrafficHitPenalty(PlayerHitPenaltyDuration, PlayerHitThrottle);
+	PlayerPawn->ApplyDamage(PlayerHitDamage);
+
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 1.5f, FColor::Yellow, TEXT("Police hit player"));
+	}
 }
